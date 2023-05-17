@@ -1,5 +1,5 @@
 # Brego Project
-Web application scanner designed by @k1k9 used only for education purpose in controlled environment
+Web application scanner used only for education purpose in controlled environment
 
 ## 📌 Setting up
 ```
@@ -28,11 +28,11 @@ options:
 I want make this script full automated and gathering information about used technology on scanned website, check known vulnerabilities, server information, allowed methods. Tasks:
 
 🥷 **Wordpress**
-- [*] Detect wordpress version (By meta tag or /feed)
-- [*] Enumerating users
+- [x] Detect wordpress version (By meta tag or /feed)
+- [x] Enumerating users
 - [ ] Checks avaliables paths such as wp-admin
 - [ ] Checks wp-cron
-- [*] Detects used plugins
+- [x] Detects used plugins
 - [ ] Check xmlrpc.php
 
 🥷 **Server**
