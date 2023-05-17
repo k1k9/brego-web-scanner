@@ -1,0 +1,14 @@
+# Hide python cache 
+__pycache__/
+
+# Environment
+env/
+.venv/
+.vscode/
+
+# App folders & files
+logs/
+test/
+
+# Other
+wordlist.txt

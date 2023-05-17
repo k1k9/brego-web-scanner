@@ -1,0 +1,20 @@
+{
+    "inCode":[
+        "wp-",
+        "--wp--",
+        ".wp-block",
+        "wp-includes",
+        "wp-content",
+        "wp-json"
+    ],
+    
+    "urlCheck":{
+        "license.txt":"WordPress",
+        "wp-login.php":"wordpress",
+        "wp-trackback.php":"<error>",
+        "feed":"wordpress",
+        "readme.html":"wordpress",
+        "feed":"wordpress",
+        "wp-includes/wlwmanifest.xml":"WordPress"
+    }
+}
