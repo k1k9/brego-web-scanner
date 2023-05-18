@@ -68,8 +68,6 @@ ch.setFormatter(logging.Formatter('%(message)s'))
 logger.addHandler(ch)
 
 if __name__ == "__main__":
-    wp = wordpress.Wordpress()
+    wp = wordpress.Wordpress(args.url)
     u = utility.Utility()
-    
-    wp.run(args.url)
     u.run(args.url, wordlist=args.wordlist)

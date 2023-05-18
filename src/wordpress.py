@@ -11,12 +11,15 @@ from .functions import display_motd, pick_user_agent
 
 
 class Wordpress:
-    def __init__(self):
+    def __init__(self, url):
         self.logger = logging.getLogger("BregoMain")
-
-    def run(self, url):
-        display_motd()
         self.URL = url
+        try: self.run()
+        except: return False
+        return True
+
+    def run(self):
+        display_motd()
         if not self._test_connection(): exit(1)
         if not self._detect_wordpress():
             self.logger.info("This site doesn't use wordpress!")
