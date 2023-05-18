@@ -14,8 +14,7 @@ class Wordpress:
         self.logger = logging.getLogger("BregoMain")
         self.URL = url
         try: self.run()
-        except: return False
-        return True
+        except: exit(1)
 
     def run(self):
         if not test_connection(self.URL): exit(1)
@@ -92,7 +91,7 @@ class Wordpress:
         plugins = json.loads(resp.content.decode())["namespaces"]
 
         if len(plugins) > 0:
-            self.logger.info(f"Detected plugins: {len(plugins)}")
+            self.logger.info(f"\nDetected plugins: {len(plugins)}")
             self.logger.info("-"*30)
             for i in plugins:
                 self.logger.info(f"[*] {i}")
@@ -120,8 +119,7 @@ class Wordpress:
 
 
         if users:
-            self.logger.info("\n\n")
-            self.logger.info(f"Detected users")
+            self.logger.info(f"\nDetected users")
             self.logger.info("-"*30)
             for i in users:
                 self.logger.info(f"[*] {i}")

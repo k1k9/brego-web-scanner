@@ -12,12 +12,13 @@ from .functions import pick_user_agent
 
 class Utility:
     """Other web scanner techniques independent of the framework used"""
-    def __init__(self):
+    def __init__(self,  url, wordlist = None):
         self.logger = logging.getLogger("BregoMain")
-
-    def run(self, url, wordlist = None):
         self.URL = url
         self.WORDLIST = wordlist
+        self._loop()
+
+    def _loop(self):
         self.dirBuster()
 
     def dirBuster(self):
@@ -37,7 +38,8 @@ class Utility:
                     detected.append((f"{resp.url}",f"{resp.status_code}"))
             
         # Print out results
-        self.logger.info(f"Finded paths: {len(detected) + len(avaliable)}")
+        if ((len(avaliable) > 0) or (len(detected) > 0)):
+            self.logger.info(f"\nFinded paths: {len(detected) + len(avaliable)}")
         if (len(avaliable) > 0):
             self.logger.info(f"Avaliable: {len(avaliable)}")
             for i in avaliable:

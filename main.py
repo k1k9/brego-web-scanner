@@ -4,9 +4,10 @@ import logging
 import argparse
 from datetime import date
 
-import src.wordpress as wordpress
-import src.utility as utility
 from src.functions import display_motd
+from src.server import Server as server
+from src.utility import Utility as utility
+from src.wordpress import Wordpress as wordpress
 
 # Setting up argument parser
 parser = argparse.ArgumentParser(
@@ -70,6 +71,6 @@ logger.addHandler(ch)
 
 if __name__ == "__main__":
     display_motd()
-    wp = wordpress.Wordpress(args.url)
-    u = utility.Utility()
-    u.run(args.url, wordlist=args.wordlist)
+    wordpress(args.url)
+    utility(args.url, wordlist=args.wordlist)
+    server(args.url)

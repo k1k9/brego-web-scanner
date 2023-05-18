@@ -18,6 +18,8 @@ class Server:
         return True
     
     def _check_server_informations(self):
+        self.logger.info("\nChecking server informations")
+        self.logger.info("-"*30)
         rsp = r.options(self.URL, headers={
             "User-Agent": pick_user_agent()})
         try: self.logger.info(f"Server: {rsp.headers.get('Server')}")

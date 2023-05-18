@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 import json
 import requests
+import logging
 from os import getcwd
 from random import randint
+
+logger = logging.getLogger("BregoMain")
 
 def display_motd():
     print("  ____   _____   ______  _____   ____  \n |  _ \ |  __ \ |  ____|/ ____| / __ \ \n | |_) || |__) || |__  | |  __ | |  | |\n |  _ < |  _  / |  __| | | |_ || |  | |\n | |_) || | \ \ | |____| |__| || |__| |\n |____/ |_|  \_\|______|\_____| \____/ ")
@@ -16,8 +19,8 @@ def pick_user_agent():
 
 def test_connection(url) -> bool:
         """Check is website avaliable"""
-        try: requests.head(self.URL)
+        try: requests.head(url)
         except requests.exceptions.RequestException as E:
-            self.logger.error("Website isn't avaliable")
+            logger.error("Website isn't avaliable")
             return False
         return True
