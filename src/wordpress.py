@@ -4,10 +4,9 @@ import json
 import requests
 import logging
 from os import getcwd
-from random import randint
 import xml.etree.ElementTree as et
 from bs4 import BeautifulSoup as bs
-from .functions import pick_user_agent
+from .functions import pick_user_agent, test_connection
 
 
 class Wordpress:
@@ -19,20 +18,13 @@ class Wordpress:
         return True
 
     def run(self):
-        if not self._test_connection(): exit(1)
+        if not test_connection(self.URL): exit(1)
         if not self._detect_wordpress():
             self.logger.info("This site doesn't use wordpress!")
             return False
         self._plugins_information()
         self._user_enumeration()
 
-    def _test_connection(self) -> bool:
-        """Check is website avaliable"""
-        try: requests.head(self.URL)
-        except requests.exceptions.RequestException as E:
-            self.logger.error("Website isn't avaliable")
-            return False
-        return True
 
     def _detect_wordpress(self):
         """Simple script wich main goal to detect wordpress site based on
