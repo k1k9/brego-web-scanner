@@ -36,9 +36,9 @@ I want make this script full automated and gathering information about used tech
 - [ ] Check xmlrpc.php
 
 🥷 **Server**
-- [ ] Server name
-- [ ] Server version
-- [ ] Avaliable HTTP methods
+- [x] Server name
+- [x] Server version
+- [x] Avaliable HTTP methods
 
 🥷 **Domain**
 - [ ] Creation date
