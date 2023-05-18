@@ -6,6 +6,7 @@ from datetime import date
 
 import src.wordpress as wordpress
 import src.utility as utility
+from src.functions import display_motd
 
 # Setting up argument parser
 parser = argparse.ArgumentParser(
@@ -68,6 +69,7 @@ ch.setFormatter(logging.Formatter('%(message)s'))
 logger.addHandler(ch)
 
 if __name__ == "__main__":
+    display_motd()
     wp = wordpress.Wordpress(args.url)
     u = utility.Utility()
     u.run(args.url, wordlist=args.wordlist)

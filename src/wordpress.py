@@ -7,7 +7,7 @@ from os import getcwd
 from random import randint
 import xml.etree.ElementTree as et
 from bs4 import BeautifulSoup as bs
-from .functions import display_motd, pick_user_agent
+from .functions import pick_user_agent
 
 
 class Wordpress:
@@ -19,7 +19,6 @@ class Wordpress:
         return True
 
     def run(self):
-        display_motd()
         if not self._test_connection(): exit(1)
         if not self._detect_wordpress():
             self.logger.info("This site doesn't use wordpress!")
