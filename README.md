@@ -47,4 +47,4 @@ I want make this script full automated and gathering information about used tech
 - [ ] Registrar
 
 🥷 **ToDo**
-- [ ] Error handling (when domain isnt avaliable)
+- [x] Error handling (when domain isnt avaliable)
