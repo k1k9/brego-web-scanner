@@ -17,11 +17,20 @@ class Wordpress:
     def run(self, url):
         display_motd()
         self.URL = url
+        if not self._test_connection(): exit(1)
         if not self._detect_wordpress():
             self.logger.info("This site doesn't use wordpress!")
             return False
         self._plugins_information()
         self._user_enumeration()
+
+    def _test_connection(self) -> bool:
+        """Check is website avaliable"""
+        try: requests.head(self.URL)
+        except requests.exceptions.RequestException as E:
+            self.logger.error("Website isn't avaliable")
+            return False
+        return True
 
     def _detect_wordpress(self):
         """Simple script wich main goal to detect wordpress site based on
